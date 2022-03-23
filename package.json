@@ -1,6 +1,6 @@
 {
   "name": "datatools-manager",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Core application for the IBI Group transit data tools suite",
   "jest": {
     "setupFilesAfterEnv": [
