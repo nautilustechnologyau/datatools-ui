@@ -1,6 +1,6 @@
 {
   "name": "datatools-manager",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "Core application for the IBI Group transit data tools suite",
   "jest": {
     "setupFilesAfterEnv": [
@@ -26,7 +26,7 @@
     "postinstall": "husky install",
     "predeploy": "yarn",
     "prestart": "yarn",
-    "semantic-release": "semantic-release --prepare false --publish @semantic-release/github --verify-conditions @semantic-release/github",
+    "semantic-releaseeee": "semantic-release --prepare false --publish @semantic-release/github --verify-conditions @semantic-release/github",
     "start": "mastarm build --env dev --serve --proxy http://localhost:4000/api",
     "test": "npm run lint && npm run lint-messages && yarn run flow && npm run test-client",
     "test-client": "TZ=America/Los_Angeles mastarm test -e test -c configurations/test --test-path-ignore-patterns \"__tests__/end-to-end __tests__/test-utils\"",
@@ -116,6 +116,7 @@
     "validator": "7.0.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
     "aggregate-error": "^3.0.0",
     "archiver": "^3.1.1",
     "auto-promised": "^0.0.3",
@@ -186,10 +187,23 @@
     ]
   },
   "release": {
+    "analyzeCommits": "@semantic-release/commit-analyzer",
+    "verifyConditions": false,
+    "prepare": false,
+    "generateNotes": false,
+    "publish": false,
+    "success": false,
+    "fail": false,
+    "branch": "dev",
+    "npmPublish": false,
+    "tarballDir": false,
+    "assets": false,
+    "changelog": "@semantic-release/changelog",
     "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/github"
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
     ]
   }
 }
